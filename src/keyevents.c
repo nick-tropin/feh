@@ -491,42 +491,58 @@ void feh_event_handle_generic(winwidget winwid, unsigned int state, KeySym keysy
 			feh_thumbnail_select_prev(winwid, 1);
 	}
 	else if (feh_is_kp(EVENT_scroll_right, state, keysym, button)) {
-		winwid->im_x -= opt.scroll_step;;
+		// winwid->im_x -= opt.scroll_step;
+        winwid->im_x -= winwid->w * 0.04;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 1);
 	}
 	else if (feh_is_kp(EVENT_scroll_left, state, keysym, button)) {
-		winwid->im_x += opt.scroll_step;
+		// winwid->im_x += opt.scroll_step;
+        winwid->im_x += winwid->w * 0.04;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 1);
 	}
 	else if (feh_is_kp(EVENT_scroll_down, state, keysym, button)) {
-		winwid->im_y -= opt.scroll_step;
+		// winwid->im_y -= opt.scroll_step;
+        winwid->im_y -= winwid->h * 0.04;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 1);
 	}
 	else if (feh_is_kp(EVENT_scroll_up, state, keysym, button)) {
-		winwid->im_y += opt.scroll_step;
+		// winwid->im_y += opt.scroll_step;
+        winwid->im_y += winwid->h * 0.04;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 1);
 	}
 	else if (feh_is_kp(EVENT_scroll_right_page, state, keysym, button)) {
-		winwid->im_x -= winwid->w;
+		// winwid->im_x -= winwid->w;
+        winwid->im_x -= winwid->w * 0.15;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 0);
 	}
 	else if (feh_is_kp(EVENT_scroll_left_page, state, keysym, button)) {
-		winwid->im_x += winwid->w;
+		// winwid->im_x += winwid->w;
+        winwid->im_x += winwid->w * 0.15;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 0);
 	}
 	else if (feh_is_kp(EVENT_scroll_down_page, state, keysym, button)) {
-		winwid->im_y -= winwid->h;
+		// winwid->im_y -= winwid->h;
+        winwid->im_y -= winwid->h * 0.15;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 0);
 	}
 	else if (feh_is_kp(EVENT_scroll_up_page, state, keysym, button)) {
-		winwid->im_y += winwid->h;
+		// winwid->im_y += winwid->h;
+        winwid->im_y += winwid->h * 0.15;
+
 		winwidget_sanitise_offsets(winwid);
 		winwidget_render_image(winwid, 0, 0);
 	}
